@@ -10,22 +10,23 @@
       body {
         margin: 0;
         padding: 0;
-        min-width: 190mm;
-        max-width: 190mm;
-        width: 190mm;
-        height: 100%;
+        min-width: calc(190mm * 2);
+        max-width: calc(190mm * 2);
+        width: calc(190mm * 2);
+        height: auto;
       }
       table {
         width: 100%;
+        height: 100%;
         border-collapse: collapse;
       }
       #items_wrapper {
-        margin-top: 2mm;
+        margin-top: 4mm;
       }
       #items_wrapper td,
       #items_wrapper th {
-        border: 1px solid #e2e2e2;
-        padding: 8px;
+        border: 2px solid #e2e2e2;
+        padding: 16px;
       }
       #items_wrapper tr:nth-child(even) {
         background-color: rgba(193, 167, 226, 0.1);
@@ -37,7 +38,7 @@
       }
       table td,
       table th {
-        font-size: 14px;
+        font-size: 28px;
       }
       table td span:first-child {
         font-weight: 400;
@@ -46,13 +47,13 @@
         text-align: center;
       }
       #grand_details {
-        font-size: 18px;
-        margin-top: 4mm;
+        font-size: 36px;
+        margin-top: 8mm;
         width: auto;
         float: right;
       }
       #grand_details td{
-        padding: 4px 8px;
+        padding: 8px 16px;
       }
       #grand_details td:first-child{
         font-weight: 400;
@@ -77,12 +78,10 @@
       </table>
       <table id="items_wrapper">
         <tr>
-          <th width="10%">No.</th>
-          <th width="40%">Items Name</th>
+          <th width="5%">No.</th>
+          <th width="40%">Barcode</th>
+          <th width="45%">Items Name</th>
           <th width="10%">Quantity</th>
-          <th width="15%">Unit Price</th>
-          <th width="10%">VAT</th>
-          <th width="15%">Amount</th>
         </tr>
       </table>
       <table id="grand_details">

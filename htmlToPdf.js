@@ -2,7 +2,9 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 
 async function saveHtmlAsImage(htmlFilePath, imageFilePath, itemsArray, user) {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    defaultViewport: { width: 1436, height: 1686 },
+  });
   const page = await browser.newPage();
 
   const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
@@ -36,14 +38,14 @@ async function saveHtmlAsImage(htmlFilePath, imageFilePath, itemsArray, user) {
         itemsArray.map((item, index) => {
           const row = document.createElement("tr");
           row.innerHTML = `
-        <td class="text-center">${index + 1}</td>
-        <td>${item?.name}</td>
-        <td class="text-center">${item?.quantity}</td>
-        <td class="text-center">${Number(item?.unitPrice).toFixed(2)}฿</td>
-        <td class="text-center">${Number(item?.vat).toFixed(2)}฿</td>
-        <td class="text-center">${Number(
-          Number(item?.unitPrice) * Number(item?.quantity)
-        ).toFixed(2)}฿</td>
+          <td class="text-center">${index + 1}</td>
+          <td class="text-center" style="padding: 8px 16px;">
+            <img src=${
+              item?.barcodeUrl
+            } width="100%" height="auto" style="max-width:120mm"/>
+          </td>
+          <td>${item?.name}</td>
+          <td class="text-center">${item?.quantity}</td>
         `;
           return row;
         });
